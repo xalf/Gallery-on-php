@@ -1,0 +1,106 @@
+a{
+	color: black !important;
+	cursor: pointer;
+}
+
+.glyphicon:hover, .glyphicon:active, .glyphicon:focus{
+	text-decoration: none;
+}
+body .container{
+	padding: 0;
+}
+
+.list-group .list-grey{
+	background-color: #f5f5f5;
+}
+
+
+.foto{
+	position: relative;
+}
+
+.foto .glyphicon-trash, .foto .glyphicon-pencil{
+	background-color: #f5f5f5;
+	opacity: 0; 
+	display: block;
+	padding: 8px;
+	position: absolute;
+	right: 15px;
+	top: 0;
+	font-size: 30px;
+}
+.foto .glyphicon-trash:hover, .foto .glyphicon-pencil:hover{
+	opacity: 0.4;
+	text-decoration: none;
+} 
+
+.bigfoto .glyphicon-pencil{
+	padding: 18px;
+}
+
+.panel-collapse .list-group-castom{
+	margin-bottom: 0;
+}
+.img-section{
+	float: left;
+	height: 76px;
+	margin-right: 20px;
+	width: 76px;
+}
+.panel-heading h3{
+	margin: 0 0 5px 0;
+}
+.glyphicon-plus{
+	margin-right: 5px;
+}
+.add-material{
+	margin-bottom: 15px;
+}
+.go-back{
+	margin-bottom: 10px;
+}
+.add-user{
+	margin-bottom: 10px;
+}
+.modal-body label{
+	margin-top: 5px;
+}
+#add-file{
+	margin-top: 10px;
+}
+
+.panel-body>h2{
+	position: relative;
+}
+
+#deletealbumbutton{
+	position: absolute;
+	font-size: 30px;
+	top: -10px;
+	right: 15px;
+	padding: 10px;
+}
+
+#addimage{
+	display: block;
+}
+
+.addimage{
+	text-align: center;
+}
+
+.addimage a:hover{
+	background-color: #eee;
+}
+
+.addimage a {
+	display: block;
+	font-size: 60px;
+	line-height: 100px;
+	vertical-align: middle;
+	margin: 0;
+}
+
+.col-md-9 .panel-body .col-md-3{
+	margin-top: 10px;
+}

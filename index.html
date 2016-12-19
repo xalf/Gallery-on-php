@@ -1,0 +1,119 @@
+<?php
+    session_start();
+?>
+<!DOCKTYPE HTML>
+<html>
+<head>
+	<title>Галерея фотографий</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/block-move.js"></script>
+</head>
+<body>
+	<!-- форма регистрации -->
+	<div class="modal fade" id="regmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        		<h4 class="modal-title" id="myModalLabel">Регистрация</h4>
+	      		</div>
+	      		<form action="" method="post" id="regform">
+		      		<div class="modal-body">
+		      			<input type="hidden" name="method" value="addalbum">
+		      			<div class="form-group">
+			      			<label>Логин</label>
+		        			<input class="form-control" type="text" name="login">
+	        			</div>
+	        			<div class="form-group">
+		        			<label>Пароль</label>
+		        			<input class="form-control" type="password" name="password">
+		        		</div>
+		        		<div class="form-group">
+		        			<label>Повторите пароль</label>
+		        			<input class="form-control" type="password" name="repeatpassword">
+		        		</div>
+		      		</div>
+		      		<div class="modal-footer">
+		        		<input type="submit" class="btn btn-primary" id="regsubmit" value="Зарегистрироваться">
+		      		</div>
+	      		</form>
+	    	</div>
+	  	</div>
+	</div>
+	<!-- форма входа -->
+	<div class="modal fade" id="loginmodel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        		<h4 class="modal-title" id="myModalLabel">Вход</h4>
+	      		</div>
+	      		<form action="" method="post" id="loginform">
+		      		<div class="modal-body">
+	        			<div class="form-group">
+		        			<label>Логин</label>
+		        			<input class="form-control" type="text" name="login">
+		        		</div>
+		        		<div class="form-group">
+		        			<label>Пароль</label>
+		        			<input class="form-control" type="password" name="password">
+		        		</div>
+		      		</div>
+		      		<div class="modal-footer">
+		        		<input type="submit" class="btn btn-primary" id="loginsubmit" value="Войти">
+		      		</div>
+	      		</form>
+	    	</div>
+	  	</div>
+	</div>
+	<div class="mobile-menu">
+		<ul>
+			<?php if($albumrows>0): ?>
+				<?php for ($i=0; $i < $albumrows; $i++):?>
+					<li>
+						<a href="#block-<?= $albums[$i]->id ?>"><?= $albums[$i]->name ?></a>
+					</li>
+				<?php endfor; ?>	
+			<?php endif; ?>
+		</ul>
+	</div>
+	<div class="menu">
+		
+		<ul>
+			<?php if($albumrows>0): ?>
+				<?php for ($i=0; $i < $albumrows; $i++):?>
+					<li>
+						<a href="#block-<?= $albums[$i]->id ?>"><?= $albums[$i]->name ?></a>
+					</li>
+				<?php endfor; ?>
+			<?php endif; ?>
+		</ul>	
+		<h1><button class="menu-button"></button>Галерея фотографий</h1>
+		<?php if(empty($_SESSION['login']) or empty($_SESSION['id'])): ?>
+			<button class="btn-cus" data-toggle="modal" data-target="#loginmodel">Войти</button>
+			<button class="btn-cus" data-toggle="modal" data-target="#regmodel">Зарегистрироваться</button>
+		<?php else: ?> 
+			<a href="exit.php" class="btn-cus" type="button">Выйти</a>
+			<a class="btn-cus" id="adminbutton" href="manage-album.php">Админка</a>
+		<?php endif ?>
+	</div>
+	<?php if($albumrows>0): ?>
+		<?php for ($i=0; $i < $albumrows; $i++):?>
+			<div class="block " id="block-<?= $albums[$i]->id ?>" style="background: url('images/<?= $albums[$i]->image ?>') <?= $albums[$i]->crop_x ?>% <?= $albums[$i]->crop_y ?>% no-repeat;">
+				<div class="album-info">
+					<div>
+						<h2><?= $albums[$i]->name ?></h2>
+						<a href="gallery.php?album=<?= $albums[$i]->id ?>">Перейти в альбом</a>
+					</div>
+				</div>
+				<a class="down-scroll" href=""></a>
+			</div>
+		<?php endfor; ?>
+	<?php endif; ?>
+	
+</body>
+</html>

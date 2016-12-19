@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><?= $albumname ?></title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/lightslider.css">
+	<style>
+    	ul{
+			list-style: none outside none;
+		    padding-left: 0;
+            margin: 0;
+		}
+        .demo .item{
+            margin-bottom: 60px;
+        }
+		.content-slider li{
+		    background-color: #ed3020;
+		    text-align: center;
+		    color: #FFF;
+		}
+		.content-slider h3 {
+		    margin: 0;
+		    padding: 70px 0;
+		}
+		.demo{
+			width: 100%;
+			margin: 73px auto 0;
+		}
+
+		#image-gallery{
+			max-height: 50%;
+		}
+
+		#image-gallery li>img{
+			display: block;
+    		margin: 0 auto;
+    		height: 100%;
+    		width: auto;
+		}
+
+		#image-gallery li{
+			height: 100%;
+		}
+    </style>
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="js/lightslider.js"></script>
+	<script type="text/javascript" src="js/gallery.js"></script>
+</head>
+<body>
+	<div class="menu">	
+			<a href="index.php" class="back-button"></a>
+		<h1>
+			<?= $albumname ?>
+		</h1>
+	</div>
+	<?php if($rowsImage > 0): ?>
+		<div class="demo">
+			<div class="item">            
+		        <div class="clearfix">
+			        <ul id="image-gallery" class="gallery list-unstyled">
+		        		<?php for ($i=0; $i < $rowsImage; $i++): ?>
+			                <li data-thumb="images/<?= $images[$i]->image ?>"> 
+			                    <img src="images/<?= $images[$i]->image ?>" />
+			                </li>
+			        	<?php endfor; ?>
+			        </ul>
+		        </div>
+		    </div>
+	    </div>
+	<?php endif; ?>
+</body>
+</html>

@@ -1,0 +1,254 @@
+
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body{
+	overflow-x: hidden;
+}
+body .mobile-menu-active{
+	margin-left: 80%;
+}
+body .right-scroll-active{
+	margin-right: 100%;
+}
+/**************menu****************/
+.menu{
+	background-color: rgba(0,0,0, 0.6);
+	border-bottom: 1px solid #000;
+	left: 0;
+	right: 0;
+	padding: 10px;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	-moz-transition: all  linear 0.5s;
+    -webkit-transition: all linear  0.5s;
+    -ms-transition: all  linear 0.5s;
+    -o-transition: all linear  0.5s;
+    transition: all  linear 0.5s;
+
+}
+.menu ul{
+	float: left;
+	width: 60%;
+}
+.menu li{
+	display: inline-block;
+	list-style: none;
+}
+.menu li a{
+	color: #fff;
+	display: block;
+	padding: 15px 5px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.menu h1{
+	display: inline-block;
+	font-size: 40px;
+	float: right;
+	line-height: 48px;
+	color:#fff;
+	margin: 0;
+	width: 40%;
+	text-align: right;
+}
+.menu-button{
+	display: none;
+}
+.back-button{
+	background: url("../images/back.png") center center no-repeat;
+	border: none;
+	display: inline-block;
+	height: 48px;
+	width: 48px;
+	float: left;
+}
+
+.btn-cus{
+	background-color: #000;
+	border: none;
+	color: #fff;
+	padding: 5px 12px;
+	text-transform: uppercase;
+	font-size: 11px;
+	display: inline-block;
+	text-decoration: none;
+}
+
+.btn-cus:hover, .btn-cus:active, .btn-cus:focus{
+	background-color: #111;
+	text-decoration: none;
+	color: #fff;
+}
+
+.menu .btn-cus{
+	float: right;
+	margin-left: 10px;
+}
+
+/***************mobile-menu*********************/
+
+.mobile-menu {
+	bottom: 0;
+	display: none;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 80%;
+	overflow: hidden;
+}
+.mobile-menu-z-index{
+	z-index: 15;
+}
+.abs{
+	left: 80%;
+}
+.mobile-menu li{
+	display: block;
+	list-style: none;
+}
+.mobile-menu li a{
+	color: #000;
+	display: block;
+	padding: 15px 5px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+/*************scrolls*********************/
+.right-scroll{
+	bottom: 0;
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	top: 68px;
+	right: 0;
+	width: 25%;
+}
+.down-scroll{
+	cursor: pointer;
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	bottom: 0;
+	height: 10%;
+}
+.down-scroll:hover{
+	opacity: 0.6;
+	background: rgba(0,0,0,1) url("../images/down.png") center center no-repeat;
+}
+.right-scroll:hover{
+	background: rgba(0,0,0,0.6) url("../images/right.png") 80% center no-repeat;
+	}
+/***************blocks*************/
+.block{
+	background-size: cover !important;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	display: table;
+
+	-moz-transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    -ms-transition: all linear  0.5s;
+    -o-transition: all linear  0.5s;
+    transition: all linear  0.5s;
+}
+
+.album-info{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.album-info div{
+	width: 50%;
+	margin: 0 auto;
+	background-color: rgba(0,0,0,0.4);
+	padding: 20px 5px;
+}
+.album-info a, .album-info a:hover, .album-info a:visited, .album-info a:active{
+	text-decoration: none;
+	color: #fff;
+}
+
+.album-info a:hover{
+	text-decoration: underline;
+}
+
+.album-info h2{
+	color: #fff;
+	font-size: 25px;
+	margin: 10px 0;
+	text-transform: uppercase;
+}
+
+.block:last-child{
+	height: 100%;
+}
+.block:last-child .down-scroll{
+	display: none;
+}
+
+
+@media screen and (max-width: 1040px){
+	.menu h1{
+		font-size: 30px;
+		width: 50%;
+	}
+	.menu ul{
+		width: 50%;
+	}
+}
+@media screen and (max-width: 700px){
+	.menu-button{
+		background: url("../images/menu-button.png") center center no-repeat;
+		border: none;
+		display: inline-block;
+		height: 48px;
+		width: 48px;
+		float: left;
+	}
+	.mobile-menu{
+		display: block;
+	}
+	.menu ul{
+		display: none;
+	}
+	.down-scroll{
+		display: none;
+	}
+	.block{
+		height: 100%;
+	}
+
+	.menu h1{
+		width: 100%;
+	}
+
+	.right-scroll{
+		display: none;
+	}
+	.down-scroll{
+		display: none;
+	}
+}
+@media screen and (max-width: 390px){
+	.menu{
+		padding: 5px;
+	}
+	.menu h1{
+		font-size: 20px;
+		line-height: 40px;
+	}
+	.menu-button{
+		height: 40px;
+		width: 40px;
+	}
+}
